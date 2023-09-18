@@ -1,0 +1,55 @@
+{
+  "kind": "collectionType",
+  "collectionName": "medias",
+  "info": {
+    "singularName": "media",
+    "pluralName": "medias",
+    "displayName": "Media",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "items": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "title": {
+      "type": "string",
+      "regex": "^[a-zA-Z\\s]+$",
+      "default": "title",
+      "minLength": 2,
+      "maxLength": 64
+    },
+    "description": {
+      "type": "string",
+      "regex": "^[a-zA-Z\\s.,!?()'\"-]+$",
+      "minLength": 8,
+      "maxLength": 128
+    },
+    "users_permissions_user": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "plugin::users-permissions.user"
+    },
+    "private": {
+      "type": "boolean"
+    },
+    "private_password": {
+      "type": "password",
+      "private": true
+    },
+    "uid": {
+      "type": "uid"
+    }
+  }
+}
